@@ -1,20 +1,21 @@
-version: 0.2
+# Not used this file. we are using GitHub Actions for CI/CD (s3 + cloudfr)
+# version: 0.2
 
-phases:
-  install:
-    runtime-versions:
-      nodejs: 18
-    commands:
-      - echo Installing dependencies...
-      - npm ci --legacy-peer-deps
+# phases:
+#   install:
+#     runtime-versions:
+#       nodejs: 18
+#     commands:
+#       - echo Installing dependencies...
+#       - npm ci --legacy-peer-deps
 
-  build:
-    commands:
-      - echo Building the React app...
-      - npm run build
+#   build:
+#     commands:
+#       - echo Building the React app...
+#       - npm run build
 
-artifacts:
-  files:
-    - '**/*'
-  base-directory: build
-  discard-paths: no
+# artifacts:
+#   files:
+#     - '**/*'
+#   base-directory: build
+#   discard-paths: no
