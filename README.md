@@ -68,3 +68,125 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
++-------------------+         +-------------------+
+|    End Users      | <-----> |   CloudFront CDN  |
++-------------------+         +-------------------+
+                                    |
+                                    v
+                        +-----------------------+
+                        |   S3 Bucket (Static)  |  <-- React build files
+                        +-----------------------+
+                                    |
+                                    v
+                        +-----------------------+
+                        |   REST API Endpoint   |  <-- Backend (Node.js, Python, etc.)
+                        +-----------------------+
+                                    |
+            +----------------------+----------------------+
+            |                      |                      |
+            v                      v                      v
++-------------------+   +-------------------+   +-------------------+
+|   RDS/DynamoDB    |   |   S3 Bucket       |   |   CloudWatch Logs |
+|   (Claims Data)   |   | (Documents, Files)|   |   & Audit Trail   |
++-------------------+   +-------------------+   +-------------------+
+
+            ^
+            |
++-------------------+
+|   Cognito/Auth0   |  <-- Authentication & User Management
++-------------------+
+
+            ^
+            |
++-------------------+
+|   SNS/SES         |  <-- Notifications (Email/SMS)
++-------------------+
+
+            ^
+            |
++-------------------+
+|   IAM Policies    |  <-- Access Control & Security
++-------------------+
+
+            ^
+            |
++-------------------+
+|   Route 53        |  <-- Custom Domain & DNS
++-------------------+
+
+
+medi-claims-webapp/
+├── public/
+│   ├── index.html
+│   ├── favicon.ico
+│   ├── manifest.json
+│   └── logo.png
+├── src/
+│   ├── assets/
+│   │   ├── images/
+│   │   │   ├── logo.svg
+│   │   │   └── banner.jpg
+│   │   ├── icons/
+│   │   │   └── claim-icon.svg
+│   │   └── fonts/
+│   │       └── custom-font.woff2
+│   ├── components/
+│   │   ├── Button.js
+│   │   ├── Card.js
+│   │   ├── Navbar.js
+│   │   ├── Sidebar.js
+│   │   └── ClaimStatusBadge.js
+│   ├── pages/
+│   │   ├── LoginPage.js
+│   │   ├── DashboardPage.js
+│   │   ├── ClaimsListPage.js
+│   │   ├── ClaimDetailPage.js
+│   │   ├── ProfilePage.js
+│   │   └── AdminPanelPage.js
+│   ├── features/
+│   │   ├── claims/
+│   │   │   ├── ClaimsSlice.js
+│   │   │   ├── ClaimsAPI.js
+│   │   │   └── ClaimsForm.js
+│   │   ├── user/
+│   │   │   ├── UserSlice.js
+│   │   │   └── UserAPI.js
+│   │   └── notifications/
+│   │       ├── NotificationsSlice.js
+│   │       └── NotificationsAPI.js
+│   ├── services/
+│   │   ├── api.js
+│   │   ├── authService.js
+│   │   └── claimsService.js
+│   ├── hooks/
+│   │   ├── useAuth.js
+│   │   ├── useClaims.js
+│   │   └── useNotifications.js
+│   ├── utils/
+│   │   ├── formatDate.js
+│   │   ├── validators.js
+│   │   └── constants.js
+│   ├── context/
+│   │   ├── AuthContext.js
+│   │   └── ThemeContext.js
+│   ├── styles/
+│   │   ├── global.css
+│   │   ├── dashboard.css
+│   │   └── login.css
+│   ├── App.js
+│   ├── index.js
+│   └── reportWebVitals.js
+├── .github/
+│   └── workflows/
+│       └── deploy.yml
+├── infra/
+│   ├── main.tf
+│   ├── variables.tf
+│   └── outputs.tf
+├── build/
+│   └── ... (auto-generated production files)
+├── node_modules/
+├── package.json
+├── README.md
+└── .env

@@ -1,0 +1,40 @@
+/* Dashboard Page Styles */
+.dashboard-container {
+	background: #f5f8fa;
+	min-height: 100vh;
+}
+
+.navbar {
+	background: #1976d2;
+	color: #fff;
+	padding: 1rem 2rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.summary-cards {
+	display: flex;
+	gap: 1.5rem;
+	margin: 2rem 0;
+	flex-wrap: wrap;
+}
+
+.card {
+	background: #fff;
+	padding: 1.5rem;
+	border-radius: 8px;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+	flex: 1;
+	min-width: 180px;
+	text-align: center;
+}
+
+.claims-table {
+	width: 100%;
+	background: #fff;
+	border-radius: 8px;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+	margin-top: 2rem;
+	padding: 1rem;
+}
