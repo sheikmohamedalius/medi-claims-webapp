@@ -1,13 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import '../styles/Menu.css';
 
 function Menu() {
   return (
-    <nav style={{ background: '#eee', padding: '0.5rem 2rem', display: 'flex', gap: '1rem' }}>
-      <Link to="/">Login</Link>
-      <Link to="/dashboard">Dashboard</Link>
-      <Link to="/claims">Claims</Link>
-      {/* Add more links as needed */}
+    <nav className="main-menu">
+      <NavLink to="/dashboard" className="menu-link">Dashboard</NavLink>
+      <NavLink to="/claims" className="menu-link">Claims</NavLink>
+      <NavLink to="/submit-claim" className="menu-link">Submit Claim</NavLink>
+      <NavLink to="/profile" className="menu-link">Profile</NavLink>
+      <NavLink to="/reports" className="menu-link">Reports</NavLink>
+      <NavLink to="/admin" className="menu-link">Admin Panel</NavLink>
+      <NavLink to="/logout" className="menu-link logout">Logout</NavLink>
     </nav>
   );
 }

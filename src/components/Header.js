@@ -1,10 +1,17 @@
 import React from 'react';
+import '../styles/Header.css';
 
 function Header() {
   return (
-    <header style={{ background: '#1976d2', color: '#fff', padding: '1rem 2rem' }}>
-      <img src="/logo192.png" alt="Logo" style={{ width: 40, verticalAlign: 'middle' }} />
-      <span style={{ marginLeft: 10, fontWeight: 'bold' }}>Medi-Claims</span>
+    <header className="main-header">
+      <div className="header-left">
+        <img src="/logo192.png" alt="Medi-Claims Logo" className="header-logo" />
+        <span className="header-title">Medi-Claims Portal</span>
+      </div>
+      <div className="header-right">
+        {/* Example: Show user info or notifications */}
+        <span className="header-user">Welcome, User</span>
+      </div>
     </header>
   );
 }

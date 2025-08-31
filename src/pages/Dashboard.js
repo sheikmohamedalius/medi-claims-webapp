@@ -19,13 +19,7 @@ function DashboardPage() {
 
   return (
     <div className="dashboard-container">
-      <div className="navbar">
-        <div>
-          <img src="/logo192.png" alt="Logo" style={{ width: 40, verticalAlign: 'middle' }} />
-          <span style={{ marginLeft: 10, fontWeight: 'bold' }}>Medi-Claims</span>
-        </div>
-        <div>User Name</div>
-      </div>
+        <h1>Dashboard</h1>
       <div className="summary-cards">
         {summary.map(card => (
           <div className="card" key={card.label}>
